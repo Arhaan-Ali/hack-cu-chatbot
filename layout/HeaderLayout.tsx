@@ -5,8 +5,6 @@ import Link from "next/link";
 import {
   SignedIn,
   SignedOut,
-  SignInButton,
-  SignUpButton,
   UserButton,
 } from "@clerk/nextjs";
 
@@ -24,14 +22,14 @@ const HeaderLayout = () => {
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <SignedOut>
-            <SignInButton>
-              <Button variant="outline" size="sm" className="hidden sm:inline-flex">
+            <Link href="/sign-in" className="hidden sm:inline-flex">
+              <Button variant="outline" size="sm">
                 Sign in
               </Button>
-            </SignInButton>
-            <SignUpButton>
+            </Link>
+            <Link href="/sign-up" className="hidden sm:inline-flex">
               <Button size="sm">Sign up</Button>
-            </SignUpButton>
+            </Link>
           </SignedOut>
           <SignedIn>
             <UserButton />

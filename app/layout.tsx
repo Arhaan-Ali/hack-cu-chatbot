@@ -2,8 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import RootProvider from "@/provider/RootProvider";
-import HeaderLayout from "@/layout/HeaderLayout";
-import FooterLayout from "@/layout/FooterLayout";
+
 
 export const metadata: Metadata = {
   title: "App",
@@ -18,11 +17,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="antialiased w-full min-h-dvh bg-background text-foreground">
+        <body className="antialiased w-full min-h-dvh bg-background text-neutral-900">
           <RootProvider>
-            <HeaderLayout />
             {children}
-            <FooterLayout />
           </RootProvider>
         </body>
       </html>
