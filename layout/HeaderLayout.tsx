@@ -27,7 +27,7 @@ const HeaderLayout = () => {
                 Sign in
               </Button>
             </Link>
-            <Link href="/sign-up" className="hidden sm:inline-flex">
+            <Link href="/sign-up" className="">
               <Button size="sm">Sign up</Button>
             </Link>
           </SignedOut>

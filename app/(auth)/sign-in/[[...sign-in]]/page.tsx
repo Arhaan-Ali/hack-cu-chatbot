@@ -2,6 +2,7 @@
 
 import * as Clerk from '@clerk/elements/common'
 import * as SignIn from '@clerk/elements/sign-in'
+import Link from 'next/link'
 
 export default function SignInPage() {
   return (
@@ -101,9 +102,9 @@ export default function SignInPage() {
 
                 <p className="mt-6 text-center text-sm text-muted-foreground">
                   Don&apos;t have an account?{' '}
-                  <Clerk.Link navigate="sign-up" className="font-semibold text-primary hover:text-primary/80">
+                  <Link href="/sign-up" className="font-semibold text-primary hover:text-primary/80">
                     Sign up
-                  </Clerk.Link>
+                  </Link>
                 </p>
               </div>
             </SignIn.Step>
