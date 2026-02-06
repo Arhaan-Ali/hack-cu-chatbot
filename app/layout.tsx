@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
+import type { Metadata } from "next";
+import RootProvider from "@/provider/RootProvider";
+import HeaderLayout from "@/layout/HeaderLayout";
+import FooterLayout from "@/layout/FooterLayout";
 
 export const metadata: Metadata = {
   title: "App",
@@ -13,8 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
-        {children}
+      <body className="antialiased w-full min-h-dvh bg-background text-foreground">
+        <RootProvider>
+          <HeaderLayout />
+          {children}
+          <FooterLayout />
+        </RootProvider>
       </body>
     </html>
   );

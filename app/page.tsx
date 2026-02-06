@@ -1,9 +1,15 @@
+import AboutPage from "@/pages/AboutPage";
+import FeaturePage from "@/pages/FeaturePage";
+import HeroPage from "@/pages/HeroPage";
+import PlansPage from "@/pages/PlansPage";
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <main className="text-center">
-        <h1 className="text-4xl font-bold">Welcome</h1>
-      </main>
-    </div>
+    <section className="min-h-screen border-x border-neutral-200">
+      <HeroPage />
+      <AboutPage  />
+      <FeaturePage />
+      <PlansPage />
+    </section>
   );
 }
