@@ -35,13 +35,13 @@ export default function CustomAvatar({ className }: CustomAvatarProps) {
       key: 'history',
       label: 'History',
       icon: History,
-      onClick: () => router.push('/history'),
+      onClick: () => router.push('/dashboard/history'),
     },
     {
       key: 'settings',
       label: 'Settings',
       icon: Settings,
-      onClick: () => router.push('/settings'),
+      onClick: () => router.push('/dashboard/settings'),
     },
     {
       key: 'manage-account',
