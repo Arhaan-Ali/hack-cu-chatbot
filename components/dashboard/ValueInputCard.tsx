@@ -13,7 +13,7 @@ const defaultFields: FieldType[] = [
   { name: "potassium", label: "Potassium (%)", type: "number" },
   { name: "moisture", label: "Moisture (%)", type: "number" },
   { name: "soilType", label: "Soil Type", type: "text" },
-  { name: "faramSize", label: "Farm Size (acres)", type: "number" },
+  { name: "farmSize", label: "Farm Size (acres)", type: "number" },
   { name: "location", label: "Location", type: "text" },
 ];
 

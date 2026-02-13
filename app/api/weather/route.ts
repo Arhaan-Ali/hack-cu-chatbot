@@ -1,18 +1,9 @@
-import { NextResponse } from "next/server";
 
-const GOOGLE_WEATHER_ENDPOINT =
-  "https://weather.googleapis.com/v1/currentConditions:lookup";
+import { NextResponse } from "next/server";
+import { fetchWeather } from "@/actions/weather/fetch-weather.action";
 
 export async function GET(request: Request) {
   const apiKey = process.env.GOOGLE_WEATHER_API_KEY;
-
-  if (!apiKey) {
-    return NextResponse.json(
-      { error: "Missing GOOGLE_WEATHER_API_KEY" },
-      { status: 500 }
-    );
-  }
-
   const { searchParams } = new URL(request.url);
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
@@ -25,32 +16,13 @@ export async function GET(request: Request) {
     );
   }
 
-  const url = new URL(GOOGLE_WEATHER_ENDPOINT);
-  url.searchParams.set("location.latitude", lat);
-  url.searchParams.set("location.longitude", lng);
-  url.searchParams.set("unitsSystem", units);
-  url.searchParams.set("key", apiKey);
-
-  const response = await fetch(url.toString(), {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    cache: "no-store",
-  });
-
-  if (!response.ok) {
-    const errorText = await response.text();
+  try {
+    const data = await fetchWeather({ lat, lng, units, apiKey });
+    return NextResponse.json({ ok: true, data });
+  } catch (error: any) {
     return NextResponse.json(
-      {
-        error: "Google Weather API request failed",
-        status: response.status,
-        details: errorText,
-      },
-      { status: response.status }
+      { error: error.message || "Weather fetch failed" },
+      { status: 500 }
     );
   }
-
-  const data = await response.json();
-  return NextResponse.json({ ok: true, data });
 }

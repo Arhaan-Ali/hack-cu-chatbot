@@ -1,4 +1,5 @@
-import PieChartCard from "@/components/dashboard/PieChartCard";import SoilValuesChartCad from "@/components/dashboard/SoilValuesChartCad";
+import PieChartCard from "@/components/dashboard/PieChartCard";
+import SoilValuesChartCad from "@/components/dashboard/SoilValuesChartCad";
 import ValueInputCard from "@/components/dashboard/ValueInputCard";
 import WeatherHistoryChartCard from "@/components/dashboard/WeatherHistoryChartCard";
 

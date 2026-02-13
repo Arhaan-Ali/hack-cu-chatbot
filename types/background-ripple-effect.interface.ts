@@ -9,4 +9,5 @@ export type DivGridProps = {
 
 export type CellStyle = React.CSSProperties & {
   isActive?: boolean;
+  [key: `--${string}`]: string | number | undefined;
 };
