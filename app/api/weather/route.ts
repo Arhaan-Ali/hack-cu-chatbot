@@ -4,6 +4,12 @@ import { fetchWeather } from "@/actions/weather/fetch-weather.action";
 
 export async function GET(request: Request) {
   const apiKey = process.env.GOOGLE_WEATHER_API_KEY;
+  if (!apiKey) {
+    return NextResponse.json(
+      { error: "Missing GOOGLE_WEATHER_API_KEY env variable" },
+      { status: 500 }
+    );
+  }
   const { searchParams } = new URL(request.url);
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");

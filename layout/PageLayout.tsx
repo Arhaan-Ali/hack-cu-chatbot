@@ -2,9 +2,12 @@
 
 import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { PageHeaderProps,
-PageLayoutProps,PageSectionProps, 
-PageSidebarProps} from "@/types/layout/page-layout.interface";
+import {
+  PageHeaderProps,
+  PageLayoutProps,
+  PageSectionProps,
+  PageSidebarProps,
+} from "@/types/layout/page-layout.interface";
 
 const PageLayout = ({
   children,

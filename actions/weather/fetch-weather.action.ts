@@ -1,5 +1,4 @@
 // actions/weather/fetch-weather.action.ts
-import { NextResponse } from "next/server";
 
 const GOOGLE_WEATHER_ENDPOINT =
   "https://weather.googleapis.com/v1/currentConditions:lookup";
