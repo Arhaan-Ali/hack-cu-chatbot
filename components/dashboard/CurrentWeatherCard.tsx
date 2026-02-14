@@ -1,7 +1,14 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardDescription,
+} from "@/components/ui/card";
 import type { OpenWeatherCurrentResponse } from "@/types/weather/openweather-current.interface";
 
 interface CurrentWeatherCardProps {
@@ -54,23 +61,20 @@ export default function CurrentWeatherCard({
   }, [lat, lon, units]);
 
   return (
-    <div
-      className={cn(
-        // Card container
-        "rounded-2xl p-4 sm:p-6 shadow-lg border border-border bg-card/80 dark:bg-card/60 flex flex-col gap-4 w-full max-w-md mx-auto",
-        "transition-colors duration-300",
-        loading && "opacity-60 animate-pulse",
-      )}
+    <Card
+      className={
+        loading
+          ? "opacity-60 animate-pulse w-full max-w-md mx-auto transition-colors duration-300"
+          : "w-full max-w-md mx-auto transition-colors duration-300"
+      }
     >
-      <h2 className="text-lg sm:text-xl font-bold mb-2 text-foreground">
-        Current Weather
-      </h2>
-      {error && <div className="text-red-500 text-sm">{error}</div>}
-      {!weather && !error && (
-        <div className="text-muted-foreground text-sm">Loading...</div>
-      )}
+      <CardHeader>
+        <CardTitle>Current Weather</CardTitle>
+        {error && <div className="text-red-500 text-sm mt-1">{error}</div>}
+        {!weather && !error && <CardDescription>Loading...</CardDescription>}
+      </CardHeader>
       {weather && (
-        <div className="flex flex-col gap-4">
+        <CardContent className="flex flex-col gap-4 items-center">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
             <Image
               src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
@@ -127,8 +131,8 @@ export default function CurrentWeatherCard({
               </span>
             </div>
           </div>
-        </div>
+        </CardContent>
       )}
-    </div>
+    </Card>
   );
 }
