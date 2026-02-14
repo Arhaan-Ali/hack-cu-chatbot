@@ -8,13 +8,11 @@ interface RootProviderProps {
 
 const RootProvider = ({ children }: RootProviderProps) => {
   return (
-      <ClerkProvider>
-      <main className="w-full min-h-dvh bg-background text-foreground flex flex-col items-center">
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
-        </main>
-      </ClerkProvider>
+    <ClerkProvider>
+      <TooltipProvider>
+        {children}
+      </TooltipProvider>
+    </ClerkProvider>
   );
 };
 

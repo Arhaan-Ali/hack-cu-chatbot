@@ -70,18 +70,20 @@ function WeatherCardContent({
   return (
     <TooltipProvider>
       <Card className="w-full max-w-md mx-auto transition-colors duration-300">
-        <CardHeader className="flex items-center justify-between">
-          <CardTitle>Current Weather</CardTitle>
-          <Button
-            variant="ghost"
-            onClick={fetchWeather}
-            disabled={loading}
-            title="Refresh weather"
-          >
-            <RefreshCcw
-              className={`mr-2 h-4 w-4 ${loading ? "animate-spin" : ""}`}
-            />
-          </Button>
+        <CardHeader>
+          <div className="flex items-center justify-between w-full">
+            <CardTitle>Current Weather</CardTitle>
+            <Button
+              variant="ghost"
+              onClick={fetchWeather}
+              disabled={loading}
+              title="Refresh weather"
+            >
+              <RefreshCcw
+                className={`mr-2 h-4 w-4 ${loading ? "animate-spin" : ""}`}
+              />
+            </Button>
+          </div>
           {error && <div className="text-red-500 text-sm mt-1">{error}</div>}
           {loading && !error && <CardDescription>Loading...</CardDescription>}
         </CardHeader>

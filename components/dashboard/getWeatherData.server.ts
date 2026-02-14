@@ -3,9 +3,7 @@ import type { OpenWeatherCurrentResponse } from "@/types/weather/openweather-cur
 
 export async function getWeatherData(lat: string, lon: string, units: string = "metric") {
   try {
-    const baseUrl =
-      process.env.NEXT_PUBLIC_BASE_URL ||
-      (typeof window === "undefined" ? "http://localhost:3000" : "");
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
     const res = await fetch(
       `${baseUrl}/api/weather/current?lat=${lat}&lon=${lon}&units=${units}`,
       { next: { revalidate: 120 } }

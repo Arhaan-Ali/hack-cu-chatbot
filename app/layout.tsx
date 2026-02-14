@@ -16,9 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased w-full min-h-dvh bg-background text-neutral-900">
-        <ThemeProvider>
-          <RootProvider>{children}</RootProvider>
-        </ThemeProvider>
+        <RootProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </RootProvider>
       </body>
     </html>
   );

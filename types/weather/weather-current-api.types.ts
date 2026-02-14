@@ -13,7 +13,7 @@ export interface WeatherCurrentApiSuccess {
 }
 
 export interface WeatherCurrentApiError {
-  ok?: false;
+  ok: false;
   error: string;
 }
 
