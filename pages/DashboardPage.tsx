@@ -4,7 +4,7 @@ import ValueInputCard from "@/components/dashboard/ValueInputCard";
 import PieChartCard from "@/components/dashboard/PieChartCard";
 import SoilValuesChartCard from "@/components/dashboard/SoilValuesChartCard";
 
-export const DashboardPage = () => {
+const DashboardPage = () => {
   return (
     <main className="w-full space-y-6">
       <header className="space-y-2">
@@ -55,3 +55,5 @@ export const DashboardPage = () => {
     </main>
   );
 };
+
+export default DashboardPage;
